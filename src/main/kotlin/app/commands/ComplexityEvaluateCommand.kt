@@ -13,4 +13,8 @@ class ComplexityEvaluateCommand: Command() {
         }
         println(answer)
     }
+
+    override fun help() {
+        println("evaluate: evaluates given directory and prints 3 most complex methods")
+    }
 }

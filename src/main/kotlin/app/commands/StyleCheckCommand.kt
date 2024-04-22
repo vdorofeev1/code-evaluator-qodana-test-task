@@ -16,4 +16,8 @@ class StyleCheckCommand: Command() {
         }
         println(answer)
     }
+
+    override fun help() {
+        println("check: checks given file and prints % of methods in camelCase")
+    }
 }

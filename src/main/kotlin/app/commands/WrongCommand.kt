@@ -6,4 +6,8 @@ class WrongCommand: Command() {
     override fun execute(args: List<String>) {
         println("wrong command!")
     }
+
+    override fun help() {
+        println()
+    }
 }

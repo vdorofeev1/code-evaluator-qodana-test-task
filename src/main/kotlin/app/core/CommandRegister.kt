@@ -12,5 +12,5 @@ class CommandRegister {
     fun getCommand(name: String): Command {
         return commands.getOrDefault(name, WrongCommand())
     }
-    fun getCommands(): Set<String> = commands.keys
+    fun getCommands(): MutableCollection<Command> = commands.values
 }
