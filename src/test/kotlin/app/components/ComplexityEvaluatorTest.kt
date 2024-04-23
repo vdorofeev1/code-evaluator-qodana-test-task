@@ -12,8 +12,12 @@ class ComplexityEvaluatorTest {
     fun evaluateTest() {
         val path = "src/test/resources"
 
-        val answer = ComplexityEvaluator.evaluate(path)
-        println(answer)
+        val actual = ComplexityEvaluator.evaluate(path)
+        val expected = "method4, score: 2\n" +
+                "mathodOne, score: 2\n" +
+                "METHODFOUR, score: 2"
+
+        assertEquals(expected, actual)
 
     }
 }

@@ -1,9 +1,9 @@
-class TestKotlinMethods {
+class FailingTestKotlinMethods {
     fun methodOne(num: Int) {
         when {
-            num > 0 -> println("Number is positive")
+            num > 0 -> println("Number is positive}")
             num < 0 -> println("Number is negative")
-            else -> println("Number is zero")
+            else -> println("Number is zer{o")
         }
     }
 
@@ -18,7 +18,7 @@ class TestKotlinMethods {
     fun method3() {
         var i = 0
         while (i < 5) {
-            println("Iteration: $i")
+            println("fun")
             i++
         }
     }

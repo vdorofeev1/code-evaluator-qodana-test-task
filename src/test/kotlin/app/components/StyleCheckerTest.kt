@@ -5,12 +5,15 @@ import org.junit.jupiter.api.Assertions.*
 
 import org.junit.jupiter.api.Test
 import javax.swing.text.Style
+import kotlin.math.exp
 
 class StyleCheckerTest {
     @Test
     fun check() {
         val path = "src/test/resources/TestKotlinMethods.kt"
-        println(StyleChecker.check(path))
+        val actual = StyleChecker.check(path)
+        val expected = "Percentage of methods in camelCase: 50.0"
+        assertEquals(expected, actual)
     }
 
     @Test
@@ -18,16 +21,11 @@ class StyleCheckerTest {
         val names = listOf(
             "camel",
             "camelCase",
-            "CamelCase", //false
-            "CAMELCASE", //false
             "camelcase",
-            "Camelcase", //false
-            "Case", //false
-            "camel_case", //fasle
             "camelCaseCaseCase",
             "cAmEl"
             )
-        names.forEach { println(StyleChecker.isCamelCase(it)) }
+        assertTrue(names.all { StyleChecker.isCamelCase(it) } )
 
     }
 }
