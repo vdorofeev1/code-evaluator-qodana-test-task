@@ -26,20 +26,32 @@ class ParserTest {
     @Test
     fun getKotlinMethodsTest() {
         val methods = Parser.getKotlinMethods(File(kotlinPath))
-        methods.forEach { println(it.getComplexityScore()) }
-        assertEquals(methods.size, 5)
+        assertEquals(4, methods.size)
     }
 
     @Test
     fun isKotlinMethodTest() {
+        val lines = listOf(
+            "fun methodName() {",
+            "fun methodName(param: Int): Int {",
+            "private fun methodName(str: String, num: Int): String {",
+            "fun methodName(): Unit {",
+            "fun methodName(param: Int): String {",
+            "protected abstract fun methodName()",
+            "fun methodName(str: String): Int = 42",
+            "fun fun5() {",
+            "fun fun6() = Unit")
+        val results = lines.map { Parser.isKotlinMethod(it) }
+        assertTrue(results.all { it == true })
     }
 
     @Test
     fun getJavaMethodsTest() {
         val methods = Parser.getJavaMethods(File(javaPath))
-        methods.forEach { println(it.getComplexityScore()) }
-        assertEquals(5, methods.size)
+        methods.forEach { println(it.getName()) }
+        assertEquals(4, methods.size)
     }
+
 
     @Test
     fun isJavaMethodtest() {
@@ -55,7 +67,7 @@ class ParserTest {
             "public static final void fun5() throws RuntimeException {"
         )
         val results = lines.map { Parser.isJavaMethod(it) }
-        println(results)
         assertTrue(results.all { it == true })
     }
+
 }

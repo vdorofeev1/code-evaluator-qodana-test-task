@@ -1,32 +1,35 @@
 class TestKotlinMethods {
-    fun camelCase(): Int = if (true) 0 else -1
+    fun method1(num: Int) {
+        when {
+            num > 0 -> println("Number is positive")
+            num < 0 -> println("Number is negative")
+            else -> println("Number is zero")
+        }
+    }
 
-    fun NotCamelCase() {
-        if (true) {
-            {
-                {
+    fun method2(array: IntArray): Int {
+        var sum = 0
+        for (num in array) {
+            sum += num
+        }
+        return sum
+    }
 
-                }
+    fun method3() {
+        var i = 0
+        while (i < 5) {
+            println("Iteration: $i")
+            i++
+        }
+    }
+
+    fun method4(array: Array<String>): String {
+        val result = StringBuilder()
+        for (str in array) {
+            if (str.length > 3) {
+                result.append(str).append(", ")
             }
         }
-        while (true) {
-        }
-        for (i in listOf(1)) {
-        }
-
-    }
-    fun NotCase() {
-        if (true) {
-        }
-        while (true) {
-        }
-    }
-    fun camelCaseCaseCase() {
-        if (true) {
-        }
-    }
-
-    fun test4() {
-        return
+        return result.toString()
     }
 }
