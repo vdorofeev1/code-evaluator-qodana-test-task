@@ -4,7 +4,7 @@ class JavaMethod(override val signature: String,
                  override val iterator: Iterator<String>):
     Method(signature, iterator) {
 
-    private val regex = Regex("((?:public|private|protected|static|final|\\s)*)\\s+(?:(abstract)\\s+)?([a-zA-Z0-9<>]+)\\s+([a-zA-Z0-9_]+)\\s*\\(([^)]*)\\)\\s*(?:throws\\s+([a-zA-Z0-9.,\\s]+))?\\s*;?\n")
+    val regex = Regex("\\s*(?:public|protected|private)?\\s*(?:static)?\\s*(?:final|abstract)?\\s*[a-zA-Z0-9<>?,.\\[\\]]+\\s+([a-zA-Z0-9_]+)\\s*\\([^)]*\\)\\s*(?:throws\\s+[a-zA-Z0-9_.]+(?:\\s*,\\s*[a-zA-Z0-9_.]+)*)?\\s*(?:\\{|;)\\s*")
     init {
         name = extractName()
         createMethod()
@@ -12,7 +12,7 @@ class JavaMethod(override val signature: String,
 
     override fun extractName(): String {
         val result = regex.find(signature)
-        return result?.groupValues?.get(1) ?: error("Method name not found in line $signature")
+        return result?.groupValues?.get(1)!!
     }
 
     override fun createMethod() {

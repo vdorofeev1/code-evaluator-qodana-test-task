@@ -10,9 +10,7 @@ class Parser {
     companion object {
 
         private val KOTLIN_FUNCTION_KEYWORD = "fun"
-        private val JAVA_METHOD_PATTERN =
-            Regex("\\s*(public|protected|private)?\\s*(static)?\\s*(final)?\\s*[a-zA-Z0-9<>?,.\\[\\]]+\\s+[a-zA-Z0-9_]+\\s*\\([^)]*\\)\\s*(throws\\s+[a-zA-Z0-9_.]+(,\\s*[a-zA-Z0-9_.]+)*)?\\s*(;|\\{)?\\s*")
-
+        private val JAVA_METHOD_PATTERN = Regex("\\s*(public|protected|private)?\\s*(abstract)?\\s*(static)?\\s*(final)?\\s*[a-zA-Z0-9<>?,.\\[\\]]+\\s+[a-zA-Z0-9_]+\\s*\\([^)]*\\)\\s*(throws\\s+[a-zA-Z0-9_.]+(,\\s*[a-zA-Z0-9_.]+)*)?\\s*(\\{|;)\\s*")
         private val JAVA_EXTENSION = "java"
         private val KOTLIN_EXTENSION = "kt"
 

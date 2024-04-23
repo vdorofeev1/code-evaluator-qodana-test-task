@@ -6,12 +6,10 @@ import java.io.File
 
 class StyleChecker {
     companion object {
-
         private val STYLE_PATTERN = Regex("^[a-z][A-Za-z]*$")
 
         fun check(path: String): String {
             val methods = Parser.getMethods(File(path))
-            methods.forEach { println(it.getName()) }
             val answer = calculatePercentage(methods)
             return "Percentage of methods in camelCase: $answer"
         }

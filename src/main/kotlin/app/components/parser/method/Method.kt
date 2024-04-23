@@ -18,13 +18,12 @@ abstract class Method(internal open val signature: String, internal open val ite
     }
 
     internal fun calculateBrackets(line: String) {
-        val splitLine = line.split(" ")
-        val lastElement = splitLine[splitLine.lastIndex]
-        if (lastElement == "{") {
-            bracketsCount++
-        }
-        if (lastElement == "}") {
-            bracketsCount--
+        for (char in line) {
+            if (char == '{') {
+                bracketsCount++
+            } else if (char == '}') {
+                bracketsCount--
+            }
         }
     }
 

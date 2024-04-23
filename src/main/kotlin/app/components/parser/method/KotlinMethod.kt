@@ -13,7 +13,7 @@ class KotlinMethod(override val signature: String,
 
     override fun extractName(): String {
         val result = regex.find(signature)
-        return result?.groupValues?.get(1) ?: error("Method name not found in line $signature")
+        return result?.groupValues?.get(1)!!
     }
 
     override fun createMethod() {
