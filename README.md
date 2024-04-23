@@ -23,7 +23,7 @@ This task requires code parsing, I made a decision to write my own `Parser`, whi
 2. `iterator: Iterator<String>` - created from reading the file, just lines of code
 
 Method takes these 2 arguments and once created, extracts method's name from `signature` and starts to iterate through given lines, counting **complexity score** and **brackets**. Once **brackets** count is 0, `Method` is ready and `iterator` points to the next line of code.  
-Also it is very important to mention, that my own `Parser` doesn't cover all corner and default **cases** of writing code, you can see these cases in tests.
+Also it is very important to mention, that my own `Parser` doesn't cover all corner and default **cases** of writing code.
 
 Also this app is designed as utility for code evaluating, so it is handy to add new commands, using abstract class `Command`.
 
