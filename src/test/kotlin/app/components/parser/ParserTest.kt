@@ -48,7 +48,6 @@ class ParserTest {
     @Test
     fun getJavaMethodsTest() {
         val methods = Parser.getJavaMethods(File(javaPath))
-        methods.forEach { println(it.getName()) }
         assertEquals(4, methods.size)
     }
 

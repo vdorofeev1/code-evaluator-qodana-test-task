@@ -2,7 +2,7 @@ class FailingTestKotlinMethods {
     fun methodOne(num: Int) {
         when {
             num > 0 -> println("Number is positive}")
-            num < 0 -> println("Number is negative")
+            num < 0 -> println("Number is negative } } }")
             else -> println("Number is zer{o")
         }
     }
