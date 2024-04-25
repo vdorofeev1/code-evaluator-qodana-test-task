@@ -2,7 +2,7 @@ public class FailingTestJavaMethods {
 
   public void mathodOne(int num) {
     if (num > 0) {
-      System.out.println("Number is positive}");
+      System.out.println("Number is positive } ");
     } else if (num < 0) {
       System.out.println("Number is negative}");
     } else {
@@ -12,7 +12,7 @@ public class FailingTestJavaMethods {
 
   public int MethodTwo(int[] array) {
     int sum = 0;
-    String s = "}"
+    String s = "}";
     for (int num : array) {
       sum += num;
     }
