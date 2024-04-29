@@ -23,11 +23,12 @@ abstract class Method {
     }
 
     internal fun calculateBrackets(line: String) {
+        var quotesCount = 0
         for (char in line) {
-            if (char == '{') {
-                bracketsCount++
-            } else if (char == '}') {
-                bracketsCount--
+            when (char) {
+                '{' -> if (quotesCount % 2 == 0) bracketsCount++
+                '}' -> if (quotesCount % 2 == 0) bracketsCount--
+                '"' -> quotesCount++
             }
         }
     }

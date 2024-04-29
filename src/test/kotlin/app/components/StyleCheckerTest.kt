@@ -10,7 +10,7 @@ import kotlin.math.exp
 class StyleCheckerTest {
     @Test
     fun check() {
-        val path = "src/test/resources/TestKotlinMethods.kt"
+        val path = "src/test/resources/passed/TestKotlinMethods.kt"
         val actual = StyleChecker.check(path)
         val expected = "Percentage of methods in camelCase: 50.0"
         assertEquals(expected, actual)

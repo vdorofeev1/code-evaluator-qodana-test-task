@@ -9,8 +9,12 @@ import org.junit.jupiter.api.Test
 import java.io.File
 
 class MyParserTest {
-    private val javaPath = "src/test/resources/TestJavaMethods.java"
-    private val kotlinPath = "src/test/resources/TestKotlinMethods.kt"
+    private val javaPath = "src/test/resources/passed/TestJavaMethods.java"
+    private val kotlinPath = "src/test/resources/passed/TestKotlinMethods.kt"
+
+    private val failedJavaPath = "src/test/resources/failed/FailingTestJavaMethods.java"
+    private val failedKotlinPath = "src/test/resources/failed/FailingTestKotlinMethods.kt"
+
     private val parser = MyParser()
 
     @Test
@@ -25,7 +29,10 @@ class MyParserTest {
 
     @Test
     fun getKotlinMethodsTest() {
-        val methods = parser.getKotlinMethods(File(kotlinPath))
+        var methods = parser.getKotlinMethods(File(failedKotlinPath))
+        assertEquals(4, methods.size)
+
+        methods = parser.getKotlinMethods(File(kotlinPath))
         assertEquals(4, methods.size)
     }
 
@@ -47,7 +54,10 @@ class MyParserTest {
 
     @Test
     fun getJavaMethodsTest() {
-        val methods = parser.getJavaMethods(File(javaPath))
+        var methods = parser.getJavaMethods(File(failedJavaPath))
+        assertEquals(4, methods.size)
+
+        methods = parser.getJavaMethods(File(javaPath))
         assertEquals(4, methods.size)
     }
 
