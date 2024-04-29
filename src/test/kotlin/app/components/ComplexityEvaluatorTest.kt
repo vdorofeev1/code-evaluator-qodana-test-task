@@ -9,12 +9,12 @@ class ComplexityEvaluatorTest {
 
     @Test
     fun evaluateTest() {
-        val path = "src/test/resources"
+        val path = "src/test/resources/passed"
 
         val actual = ComplexityEvaluator.evaluate(path)
-        val expected = "mathodOne, score: 6\n" +
-                "methodOne, score: 5\n" +
-                "method4, score: 2"
+        val expected = "method4, file: TestKotlinMethods.kt, score: 2\n" +
+                "mathodOne, file: TestJavaMethods.java, score: 2\n" +
+                "METHODFOUR, file: TestJavaMethods.java, score: 2"
 
         assertEquals(expected, actual)
 

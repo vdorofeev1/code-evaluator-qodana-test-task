@@ -16,6 +16,7 @@ class MyParserTest {
     @Test
     fun getMethodsTest() {
         val javaMethods = parser.getMethods(File(javaPath))
+        javaMethods.forEach { println(it.toString()) }
         assertTrue(javaMethods.all { it is JavaMethod })
 
         val kotlinMethods = parser.getMethods(File(kotlinPath))
@@ -24,7 +25,7 @@ class MyParserTest {
 
     @Test
     fun getKotlinMethodsTest() {
-        val methods = MyParser.getKotlinMethods(File(kotlinPath))
+        val methods = parser.getKotlinMethods(File(kotlinPath))
         assertEquals(4, methods.size)
     }
 
@@ -40,13 +41,13 @@ class MyParserTest {
             "fun methodName(str: String): Int = 42",
             "fun fun5() {",
             "fun fun6() = Unit")
-        val results = lines.map { MyParser.isKotlinMethod(it) }
+        val results = lines.map { parser.isKotlinMethod(it) }
         assertTrue(results.all { it == true })
     }
 
     @Test
     fun getJavaMethodsTest() {
-        val methods = MyParser.getJavaMethods(File(javaPath))
+        val methods = parser.getJavaMethods(File(javaPath))
         assertEquals(4, methods.size)
     }
 
@@ -64,7 +65,7 @@ class MyParserTest {
             "int methodName(String str) throws IOException;",
             "public static final void fun5() throws RuntimeException {"
         )
-        val results = lines.map { MyParser.isJavaMethod(it) }
+        val results = lines.map { parser.isJavaMethod(it) }
         assertTrue(results.all { it == true })
     }
 

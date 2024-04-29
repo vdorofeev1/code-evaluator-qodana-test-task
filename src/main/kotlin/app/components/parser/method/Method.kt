@@ -1,9 +1,14 @@
 package org.example.app.components.parser.method
 
 
-abstract class Method(internal open val signature: String, internal open val iterator: Iterator<String>) {
+abstract class Method {
+
+
     private val conditionalStatements = listOf("if", "for", "while", "switch", "when")
-    internal var name = ""
+    internal var fileName: String = ""
+    internal var name: String = ""
+    internal var signature: String = ""
+    internal var iterator: Iterator<String> = emptyList<String>().iterator()
     internal var complexityScore = 0
     internal var bracketsCount = 0
 
@@ -32,6 +37,6 @@ abstract class Method(internal open val signature: String, internal open val ite
     fun getComplexityScore() = complexityScore
 
     override fun toString(): String {
-        return "$name, score: $complexityScore"
+        return "$name, file: $fileName, score: $complexityScore"
     }
 }
