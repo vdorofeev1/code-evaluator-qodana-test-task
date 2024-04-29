@@ -1,15 +1,17 @@
 package org.example.app.components
 
+import org.example.app.components.parser.MyParser
 import org.example.app.components.parser.Parser
 import org.example.app.components.parser.method.Method
 import java.io.File
 
 class StyleChecker {
     companion object {
+        private val parser: Parser = MyParser()
         private val STYLE_PATTERN = Regex("^[a-z][A-Za-z]*$")
 
         fun check(path: String): String {
-            val methods = Parser.getMethods(File(path))
+            val methods = parser.getMethods(File(path))
             val answer = calculatePercentage(methods)
             return "Percentage of methods in camelCase: $answer"
         }

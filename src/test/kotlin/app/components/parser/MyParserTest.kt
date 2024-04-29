@@ -1,31 +1,30 @@
 package app.components.parser
 
-import org.example.app.components.parser.Parser
+import org.example.app.components.parser.MyParser
 import org.example.app.components.parser.method.JavaMethod
 import org.example.app.components.parser.method.KotlinMethod
-import org.example.app.components.parser.method.Method
-import org.example.app.components.tools.PathHandler
 import org.junit.jupiter.api.Assertions.*
 
 import org.junit.jupiter.api.Test
 import java.io.File
 
-class ParserTest {
+class MyParserTest {
     private val javaPath = "src/test/resources/TestJavaMethods.java"
     private val kotlinPath = "src/test/resources/TestKotlinMethods.kt"
+    private val parser = MyParser()
 
     @Test
     fun getMethodsTest() {
-        val javaMethods = Parser.getMethods(File(javaPath))
+        val javaMethods = parser.getMethods(File(javaPath))
         assertTrue(javaMethods.all { it is JavaMethod })
 
-        val kotlinMethods = Parser.getMethods(File(kotlinPath))
+        val kotlinMethods = parser.getMethods(File(kotlinPath))
         assertTrue(kotlinMethods.any { it is KotlinMethod })
     }
 
     @Test
     fun getKotlinMethodsTest() {
-        val methods = Parser.getKotlinMethods(File(kotlinPath))
+        val methods = MyParser.getKotlinMethods(File(kotlinPath))
         assertEquals(4, methods.size)
     }
 
@@ -41,13 +40,13 @@ class ParserTest {
             "fun methodName(str: String): Int = 42",
             "fun fun5() {",
             "fun fun6() = Unit")
-        val results = lines.map { Parser.isKotlinMethod(it) }
+        val results = lines.map { MyParser.isKotlinMethod(it) }
         assertTrue(results.all { it == true })
     }
 
     @Test
     fun getJavaMethodsTest() {
-        val methods = Parser.getJavaMethods(File(javaPath))
+        val methods = MyParser.getJavaMethods(File(javaPath))
         assertEquals(4, methods.size)
     }
 
@@ -65,7 +64,7 @@ class ParserTest {
             "int methodName(String str) throws IOException;",
             "public static final void fun5() throws RuntimeException {"
         )
-        val results = lines.map { Parser.isJavaMethod(it) }
+        val results = lines.map { MyParser.isJavaMethod(it) }
         assertTrue(results.all { it == true })
     }
 
