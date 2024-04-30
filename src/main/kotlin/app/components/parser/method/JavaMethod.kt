@@ -32,6 +32,7 @@ class JavaMethod():
                 val line = iterator.next()
                 calculateBrackets(line)
                 incrementComplexityScore(line)
+
             }
         }
         // if abstract method

@@ -11,9 +11,7 @@ import org.example.app.components.parser.method.KotlinMethod
 import org.example.app.components.parser.method.Method
 
 import java.io.File
-import java.nio.file.Paths
-
-class ThirdPartyParser: Parser {
+class ThirdPartyParser: ParserInterface {
 
     private val JAVA_EXTENSION = "java"
     private val KOTLIN_EXTENSION = "kt"
@@ -50,9 +48,5 @@ class ThirdPartyParser: Parser {
     }
 }
 
-fun main() {
-    val path = "/home/vdorofeev/MyProjects/test_projects/code-evaluator-qodana-test-task/src/test/resources/FailingTestJavaMethods.java"
-    val parser = ThirdPartyParser()
-    val methods = parser.getJavaMethods(File(path))
-    methods.forEach { println(it.toString()) }
-}
+
+

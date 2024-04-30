@@ -1,14 +1,14 @@
 package org.example.app.components
 
 import org.example.app.components.parser.MyParser
-import org.example.app.components.parser.Parser
+import org.example.app.components.parser.ParserInterface
 import org.example.app.components.parser.method.Method
 import org.example.app.components.tools.PathHandler
 
 class ComplexityEvaluator {
 
     companion object {
-        private val parser: Parser = MyParser()
+        private val parser: ParserInterface = MyParser()
 
         fun evaluate(path: String): String {
             val files = PathHandler.getFiles(path)

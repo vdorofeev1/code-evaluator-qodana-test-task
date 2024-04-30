@@ -5,7 +5,7 @@ import org.example.app.components.parser.method.KotlinMethod
 import org.example.app.components.parser.method.Method
 import java.io.File
 
-interface Parser {
+interface ParserInterface {
     fun getMethods(file: File): List<Method>
 
     fun getKotlinMethods(file: File): List<KotlinMethod>

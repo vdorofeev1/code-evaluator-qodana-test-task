@@ -1,6 +1,5 @@
-class FailingTestJavaMethods {
+public class MoreTestJavaMethods {
 
-  /*
   public void mathodOne(int num) {
     if (num > 0) {
       System.out.println("Number is positive } } } }");
@@ -10,9 +9,6 @@ class FailingTestJavaMethods {
       System.out.println("Number is zero");
     }
   }
-   */
-
-  // abstract void fun();
 
   public int MethodTwo(int[] array) {
     int sum = 0;

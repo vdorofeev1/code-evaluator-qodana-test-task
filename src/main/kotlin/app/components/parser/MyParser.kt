@@ -5,7 +5,7 @@ import org.example.app.components.parser.method.KotlinMethod
 import org.example.app.components.parser.method.Method
 import java.io.File
 
-class MyParser: Parser {
+class MyParser: ParserInterface {
 
     private val KOTLIN_FUNCTION_KEYWORD = "fun"
     private val JAVA_METHOD_PATTERN =

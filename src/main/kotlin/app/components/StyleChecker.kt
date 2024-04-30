@@ -1,13 +1,13 @@
 package org.example.app.components
 
 import org.example.app.components.parser.MyParser
-import org.example.app.components.parser.Parser
+import org.example.app.components.parser.ParserInterface
 import org.example.app.components.parser.method.Method
 import java.io.File
 
 class StyleChecker {
     companion object {
-        private val parser: Parser = MyParser()
+        private val parser: ParserInterface = MyParser()
         private val STYLE_PATTERN = Regex("^[a-z][A-Za-z]*$")
 
         fun check(path: String): String {

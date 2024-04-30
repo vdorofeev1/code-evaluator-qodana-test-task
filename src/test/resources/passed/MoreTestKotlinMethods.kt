@@ -1,4 +1,4 @@
-class FailingTestKotlinMethods {
+class MoreTestKotlinMethods {
     fun methodOne(num: Int) {
         when {
             num > 0 -> println("Number is positive}")
